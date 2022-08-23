@@ -102,4 +102,58 @@ submitBtn.addEventListener('click', () => {
 
 });
 
+/* generato checkboxes per compattare html e in caso cambiamenti, vedere se è meglio direttamente statico se performance intaccate */
 
+
+listacomuni = ["Borso del Grappa (TV)", "Castelfranco Veneto (TV)", "Pieve del Grappa (TV)", "San Zenone degli Ezzelini (TV)", "Caorle (VE)", "Venezia (VE)", "Arcugnano (VI)", "Bassano del Grappa (VI)", "Cassola (VI)", "Colceresa (VI)", "Marostica (VI)", "Mussolente (VI)", "Nove (VI)", "Pove del Grappa (VI)", "Quinto Vicentino (VI)", "Romano d'Ezzelino (VI)", "Schiavon (VI)", "Vicenza (VI)"];
+listatipologia = ["1 locale", "2 locali", "3 locali", "4 o più locali", "Attico", "Baita", "Capannone", "Casa singola", "Crotto", "Dépendance", "Duplex", "Garage", "Hotel", "Laboratorio", "Loft", "Magazzino", "Maisonette", "Mansarda", "Negozio", "Porzione di Casa", "Porzione Villa", "Posto Auto", "Posto Barca", "Rustico/Casale", "Stanza", "Terreno", "Trullo", "Ufficio", "Villa", "Villa Bifamiliare", "Villetta schiera"]
+listaaltrep = ["Ho animali", "Sono fumatore", "Giardino privato", "Posto auto", "Terrazzo vivibile", "Con ascensore", "Piano terra"]
+
+function comunimkr() {
+    var i = 0
+    var comuni = ""
+    listacomuni.forEach(element => {
+        var k = '<div class="col-6"><div class="form-check form-check-inline">';
+        i += 1
+        k += '<input class="form-check-input" type="checkbox" value="" id="chkcomuni' + i + '">';
+        k += '<label class="form-check-label" for="chkcomuni' + i + '">' + element + '</label>'
+        k += "</div></div>";
+        comuni += k
+    });
+    document.getElementById("rowcomuni").innerHTML = comuni;
+}
+
+function tipologiamkr() {
+    var i = 0
+    var tipologia = ""
+    listatipologia.forEach(element => {
+        var b = '<div class="col-6"><div class="form-check form-check-inline">';
+        i += 1
+        b += '<input class="form-check-input" type="checkbox" value="" id="chktipologia' + i + '">';
+        b += '<label class="form-check-label" for="chktipologia' + i + '">' + element + '</label>'
+        b += "</div></div>";
+        tipologia += b
+    });
+    document.getElementById("rowtip").innerHTML = tipologia;
+}
+
+function altremkr() {
+    var i = 0
+    var altrep = ""
+    listaaltrep.forEach(element => {
+        var b = '<div class="col-6"><div class="form-check form-check-inline">';
+        i += 1
+        b += '<input class="form-check-input" type="checkbox" value="" id="chkaltrep' + i + '">';
+        b += '<label class="form-check-label" for="chkaltrep' + i + '">' + element + '</label>'
+        b += "</div></div>";
+        altrep += b
+    });
+    document.getElementById("rowaltrep").innerHTML = altrep;
+}
+
+window.onload = (event) => {
+
+    comunimkr();
+    tipologiamkr();
+    altremkr();
+};
